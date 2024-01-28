@@ -1,0 +1,10 @@
+CI10,corp iluminat,Lampa Venetia,12,500.0
+CI11,corp iluminat,Lampa Roma,11,450.0
+CI12,dulap,Dulap Maro,10,230.0
+CI13,canapea,Canapea Verde,8,120.0
+CI14,canapea,Canapea Rosie,9,43.0
+CI15,scaun,Scaun Maro,15,100.0
+CI16,scaun,Scaun Alb,14,120.0
+CI17,dulap,Dulap Negru,5,255.0
+CI18,birou,Birou Alb,3,222.0
+CI19,birou,Birou Negru,1,210.0

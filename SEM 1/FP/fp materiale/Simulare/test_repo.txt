@@ -1,0 +1,3 @@
+CI10,corp iluminat,Lampa Venetia,2,500.0
+CI11,corp iluminat,Lampa Roma,11,450.0
+CI12,dulap,Dulap Maro,6,230.0
