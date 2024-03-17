@@ -1,0 +1,110 @@
+        -:    0:Source:C:/Users/Moglan Calin-Stefan/CLionProjects/lab2OOP_incase/repo.c
+        -:    0:Graph:C:\Users\Moglan Calin-Stefan\CLionProjects\lab2OOP_incase\cmake-build-debug-coverage\CMakeFiles\lab2OOP_incase.dir\repo.c.gcno
+        -:    0:Data:C:\Users\Moglan Calin-Stefan\CLionProjects\lab2OOP_incase\cmake-build-debug-coverage\CMakeFiles\lab2OOP_incase.dir\repo.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "repo.h"
+        -:    2:
+        -:    3:/*
+        -:    4: * Creem o lista vida pt tranzactii
+        -:    5: *
+        -:    6: * return: List - lista vida
+        -:    7: */
+function createEmpty called 20 returned 100% blocks executed 100%
+       20:    8:List createEmpty(){
+        -:    9:    List l;
+       20:   10:    l.len = 0;
+       20:   11:    return l;
+       20:   11-block  0
+        -:   12:}
+        -:   13:
+        -:   14:/*
+        -:   15: * Distruge o lista
+        -:   16: *
+        -:   17: * Params: -l: adresa listei de distrus(List*)
+        -:   18: */
+function destroy called 1 returned 100% blocks executed 100%
+        1:   19:void destroy(List* l){
+        1:   20:    l -> len = 0;
+        1:   21:}
+        -:   22:/*
+        -:   23: * adauga un element la sfarsitul listei
+        -:   24: *
+        -:   25: * params: - l lista in care se adauga elementul
+        -:   26: *         -el elementul care se adauga
+        -:   27: */
+function add called 28 returned 100% blocks executed 100%
+       28:   28:void add(List *l, TElem el){
+       28:   29:    l -> elem[l -> len] = el;
+       28:   30:    l -> len++;
+       28:   31:}
+        -:   32:/*
+        -:   33: * adauga un element pe o pozitie in lista
+        -:   34: *
+        -:   35: * params: - l lista in care se adauga elementul
+        -:   36: *         -el elementul care se adauga
+        -:   37: *         -poz pozitia pe care se adauga
+        -:   38: */
+function addTrans called 1 returned 100% blocks executed 100%
+        1:   39:void addTrans(List *l, TElem el, int poz){
+        1:   40:    l -> elem[poz] = el;
+        1:   41:}
+        -:   42:
+        -:   43:/**
+        -:   44:* functia modifica o tranzactie cu o alta
+        -:   45:*
+        -:   46:* @param l - lista in care modificam tranzactia
+        -:   47:* @param el - elementul cu care o inlocuim
+        -:   48:* @param new_el - elementul cu care inlocuim
+        -:   49:**/
+function modifyTrans called 2 returned 100% blocks executed 100%
+        2:   50:void modifyTrans(List *l, TElem el, int poz){
+        2:   51:    l -> elem[poz] = el;
+        2:   52:}
+        -:   53:/*
+        -:   54: * sterge un element din lista de pe o pozitie specificata
+        -:   55: *
+        -:   56: * params: l lista din care se sterge
+        -:   57: *         poz pozitia de pe care se sterge
+        -:   58: *
+        -:   59: * return TElem - elementul sters
+        -:   60: */
+function delete called 2 returned 100% blocks executed 100%
+        2:   61:TElem delete(List *l, int poz){
+        2:   62:    TElem el = l -> elem[poz];
+        3:   63:    for (int i = poz; i < l -> len - 1; i++)
+        2:   63-block  0
+        3:   63-block  1
+branch  0 taken 1
+branch  1 taken 2 (fallthrough)
+        1:   64:        l -> elem[i] = l -> elem[i+1];
+        1:   64-block  0
+        2:   65:    l -> len--;
+        2:   66:    return el;
+        2:   66-block  0
+        -:   67:}
+        -:   68:/*
+        -:   69: * returneaza un element din lista de pe o pozitie specificata
+        -:   70: *
+        -:   71: * params: l lista din care se extrage
+        -:   72: *         poz pozitia de pe care se extrage
+        -:   73: *
+        -:   74: * return TElem - elementul extras
+        -:   75: */
+function get called 35 returned 100% blocks executed 100%
+       35:   76:TElem get(List *l, int poz){
+       35:   77:    return l->elem[poz];
+       35:   77-block  0
+        -:   78:}
+        -:   79:
+        -:   80:/*
+        -:   81:dz * returneaza marimea listei
+        -:   82: *
+        -:   83: * params: l - lista careia ii gasim dimensiunea
+        -:   84: *
+        -:   85: * return: int - nr de elem din lista
+        -:   86: */
+function size called 62 returned 100% blocks executed 100%
+       62:   87:int size(List *l){
+       62:   88:    return l -> len;
+       62:   88-block  0
+        -:   89:}

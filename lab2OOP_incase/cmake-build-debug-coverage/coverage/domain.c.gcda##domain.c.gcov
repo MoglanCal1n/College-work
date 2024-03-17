@@ -1,0 +1,98 @@
+        -:    0:Source:C:/Users/Moglan Calin-Stefan/CLionProjects/lab2OOP_incase/domain.c
+        -:    0:Graph:C:\Users\Moglan Calin-Stefan\CLionProjects\lab2OOP_incase\cmake-build-debug-coverage\CMakeFiles\lab2OOP_incase.dir\domain.c.gcno
+        -:    0:Data:C:\Users\Moglan Calin-Stefan\CLionProjects\lab2OOP_incase\cmake-build-debug-coverage\CMakeFiles\lab2OOP_incase.dir\domain.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "domain.h"
+        -:    2:#include <string.h>
+        -:    3:
+        -:    4:
+        -:    5:/**
+        -:    6: Functia creaza un element de tip tranzactie
+        -:    7: params:descriere - descrierea tranzactiei
+        -:    8:        suma - suma tranzactiei
+        -:    9:        tip - tipul tranzactiei, intrare/iesire
+        -:   10:        zi - ziua din luna in care s-a efectuat tranzactia
+        -:   11:        luna - luna in care s-a efectuat tranzactia
+        -:   12:    return tranzactia cu caracteristicile de mai sus
+        -:   13: **/
+function create_transaction called 43 returned 100% blocks executed 100%
+       43:   14:Trans create_transaction(char *descriere, int suma, char *tip, int zi){
+        -:   15:    Trans t;
+       43:   16:    t.suma = suma;
+       43:   17:    t.zi = zi;
+       43:   18:    strcpy(t.descriere, descriere);
+       43:   19:    strcpy(t.tip, tip);
+        -:   20:
+       43:   21:    return t;
+       43:   21-block  0
+        -:   22:}
+        -:   23:
+        -:   24:
+        -:   25:/**
+        -:   26: Functia valideaza un element de tip tranzactie
+        -:   27: params:descriere - descrierea tranzactiei
+        -:   28:        suma - suma tranzactiei
+        -:   29:        tip - tipul tranzactiei, intrare/iesire
+        -:   30:        zi - ziua din luna in care s-a efectuat tranzactia
+        -:   31:        luna - luna in care s-a efectuat tranzactia
+        -:   32:    return 0, 1 in functie de validitatea tranzactiei
+        -:   33: **/
+function validate called 9 returned 100% blocks executed 100%
+        9:   34:int validate(Trans t){
+        -:   35:    char tipV[255];
+        9:   36:    strcpy(tipV, t.tip);
+        9:   37:    if ((strcmp(tipV, "intrare") != 0) && (strcmp(tipV, "iesire") != 0))
+        9:   37-block  0
+branch  0 taken 5 (fallthrough)
+branch  1 taken 4
+        5:   37-block  1
+branch  2 taken 3 (fallthrough)
+branch  3 taken 2
+        3:   38:        return 0;
+        3:   38-block  0
+        6:   39:    if (t.suma <= 0)
+        6:   39-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 5
+        1:   40:        return 0;
+        1:   40-block  0
+        5:   41:    if (t.zi < 1 || t.zi > 31)
+        5:   41-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 1
+        4:   41-block  1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 4
+        1:   42:        return 0;
+        1:   42-block  0
+        -:   43:
+        4:   44:    return 1;
+        4:   44-block  0
+        -:   45:}
+        -:   46:
+        -:   47:
+        -:   48:/**
+        -:   49: * Functia sterge un element de tip tranzactie
+        -:   50: * params: t - tranzactia de sters
+        -:   51: **/
+function delete_transaction called 1 returned 100% blocks executed 100%
+        1:   52:void delete_transaction(Trans *t){
+        1:   53:    t -> zi = 0;
+        1:   54:    t -> suma = 0;
+        1:   55:    t -> descriere[0] = '\0';
+        1:   56:    t -> tip[0] = '\0';
+        1:   57:}
+        -:   58:
+        -:   59:/**
+        -:   60: * Functia modifica o tranzactie
+        -:   61: *
+        -:   62: * params: t - tranzactia pe care o modificam
+        -:   63: *         c - tranzactia cu care o inlocui
+        -:   64: **/
+function modify_transaction called 1 returned 100% blocks executed 100%
+        1:   65:void modify_transaction(Trans *t, Trans *c){
+        1:   66:    t->zi = c->zi;
+        1:   67:    t->suma = c->suma;
+        1:   68:    strcpy(t->descriere, c->descriere);
+        1:   69:    strcpy(t->tip, c->tip);
+        1:   70:}

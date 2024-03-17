@@ -1,0 +1,374 @@
+        -:    0:Source:C:/Users/Moglan Calin-Stefan/CLionProjects/lab2OOP_incase/service.c
+        -:    0:Graph:C:\Users\Moglan Calin-Stefan\CLionProjects\lab2OOP_incase\cmake-build-debug-coverage\CMakeFiles\lab2OOP_incase.dir\service.c.gcno
+        -:    0:Data:C:\Users\Moglan Calin-Stefan\CLionProjects\lab2OOP_incase\cmake-build-debug-coverage\CMakeFiles\lab2OOP_incase.dir\service.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "service.h"
+        -:    2:#include <string.h>
+        -:    3:
+        -:    4:/**
+        -:    5: Functia adauga o noua tranzactie
+        -:    6: params:descriere - descrierea tranzactiei
+        -:    7:        suma - suma tranzactiei
+        -:    8:        tip - tipul tranzactiei, intrare/iesire
+        -:    9:        zi - ziua din luna in care s-a efectuat tranzactia
+        -:   10:        luna - luna in care s-a efectuat tranzactia
+        -:   11:    return tranzactia cu caracteristicile de mai sus
+        -:   12: **/
+function adaugaTrans called 2 returned 100% blocks executed 100%
+        2:   13:int adaugaTrans(List *l, char *descriere, int suma, char *tip, int zi){
+        2:   14:    Trans t = create_transaction(descriere,suma,tip,zi);
+        2:   14-block  0
+call    0 returned 2
+        2:   15:    if (validate(t) == 0)
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1
+        1:   16:        return 0;
+        1:   16-block  0
+        1:   17:    add(l, t);
+        1:   17-block  0
+call    0 returned 1
+        1:   18:    return 1;
+        -:   19:}
+        -:   20:/**
+        -:   21: Functia sterge o tranzactie
+        -:   22: params:descriere - descrierea tranzactiei
+        -:   23:        suma - suma tranzactiei
+        -:   24:        tip - tipul tranzactiei, intrare/iesire
+        -:   25:        zi - ziua din luna in care s-a efectuat tranzactia
+        -:   26:        luna - luna in care s-a efectuat tranzactia
+        -:   27:    return tranzactia cu caracteristicile de mai sus
+        -:   28: **/
+function stergeTrans called 2 returned 100% blocks executed 100%
+        2:   29:int stergeTrans(List *l, char *descriere, int suma, char *tip, int zi){
+        -:   30:    int poz;
+        3:   31:    for (int i = 0; i < size(l); i++)
+        2:   31-block  0
+        1:   31-block  1
+        3:   31-block  2
+call    0 returned 3
+branch  1 taken 2
+branch  2 taken 1 (fallthrough)
+        2:   32:        if (strcmp(get(l,i).descriere, descriere) == 0 && strcmp(get(l,i).tip, tip) == 0
+        2:   32-block  0
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1
+        1:   32-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0
+        1:   33:        && get(l,i).zi == zi && get(l, i).suma == suma){
+        1:   33-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        1:   33-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0
+        1:   34:            poz = i;
+        1:   35:            delete(l, poz);
+        1:   35-block  0
+call    0 returned 1
+        1:   36:            return 1;
+        -:   37:        }
+        1:   38:    return 0;
+        1:   38-block  0
+        -:   39:}
+        -:   40:
+function modifyTransServ called 3 returned 100% blocks executed 100%
+        3:   41:int modifyTransServ(List *l, char *descriere, int suma, char *tip, int zi, char *new_descriere, int new_suma, char *new_tip, int new_zi){
+        3:   42:    Trans c = create_transaction(new_descriere,new_suma,new_tip,new_zi);
+        3:   42-block  0
+call    0 returned 3
+        3:   43:    if (validate(c) == 0)
+call    0 returned 3
+branch  1 taken 1 (fallthrough)
+branch  2 taken 2
+        1:   44:        return 0;
+        1:   44-block  0
+        -:   45:
+        -:   46:    int poz;
+        3:   47:    for (int i = 0; i < size(l); i++)
+        2:   47-block  0
+        1:   47-block  1
+        3:   47-block  2
+call    0 returned 3
+branch  1 taken 2
+branch  2 taken 1 (fallthrough)
+        2:   48:        if (strcmp(get(l,i).descriere, descriere) == 0 && strcmp(get(l,i).tip, tip) == 0
+        2:   48-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0
+        2:   48-block  1
+call    3 returned 2
+branch  4 taken 1 (fallthrough)
+branch  5 taken 1
+        1:   49:            && get(l,i).zi == zi && get(l, i).suma == suma){
+        1:   49-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        1:   49-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0
+        1:   50:            poz = i;
+        1:   51:            modifyTrans(l, c, poz);
+        1:   51-block  0
+call    0 returned 1
+        1:   52:            return 1;
+        -:   53:        }
+        1:   54:    return 0;
+        1:   54-block  0
+        -:   55:}
+        -:   56:
+function transCritTip called 2 returned 100% blocks executed 100%
+        2:   57:List transCritTip(List *l, char *tip) {
+        2:   58:    List lista_filtru = createEmpty();
+        2:   58-block  0
+call    0 returned 2
+        8:   59:    for (int i = 0; i < size(l); i++) {
+        6:   59-block  0
+        8:   59-block  1
+call    0 returned 8
+branch  1 taken 6
+branch  2 taken 2 (fallthrough)
+        6:   60:        Trans t = get(l, i);
+        6:   60-block  0
+call    0 returned 6
+        6:   61:        if (strcmp(t.tip, tip) == 0)
+branch  0 taken 3 (fallthrough)
+branch  1 taken 3
+        3:   62:            add(&lista_filtru, create_transaction(t.descriere, t.suma, t.tip, t.zi));
+        3:   62-block  0
+call    0 returned 3
+call    1 returned 3
+        -:   63:    }
+        2:   64:    return lista_filtru;
+        2:   64-block  0
+        -:   65:}
+        -:   66:
+function transCritSuma called 2 returned 100% blocks executed 100%
+        2:   67:List transCritSuma(List *l, int suma, int mod){
+        2:   68:    List lista_filtru = createEmpty();
+        2:   68-block  0
+call    0 returned 2
+        2:   69:    if (mod == 1)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        4:   70:        for (int i = 0; i < size(l); i++){
+        1:   70-block  0
+        3:   70-block  1
+        4:   70-block  2
+call    0 returned 4
+branch  1 taken 3
+branch  2 taken 1
+        3:   71:            Trans t = get(l, i);
+        3:   71-block  0
+call    0 returned 3
+        3:   72:            if (t.suma > suma)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:   73:                add(&lista_filtru, create_transaction(t.descriere, t.suma, t.tip, t.zi));
+        1:   73-block  0
+call    0 returned 1
+call    1 returned 1
+        -:   74:        }
+        1:   75:    else if(mod == 2)
+        1:   75-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        4:   76:        for (int i = 0; i < size(l); i++){
+        1:   76-block  0
+        3:   76-block  1
+        4:   76-block  2
+call    0 returned 4
+branch  1 taken 3
+branch  2 taken 1 (fallthrough)
+        3:   77:            Trans t = get(l, i);
+        3:   77-block  0
+call    0 returned 3
+        3:   78:            if (t.suma < suma)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:   79:                add(&lista_filtru, create_transaction(t.descriere, t.suma, t.tip, t.zi));
+        1:   79-block  0
+call    0 returned 1
+call    1 returned 1
+        -:   80:        }
+        -:   81:
+        2:   82:    return lista_filtru;
+        2:   82-block  0
+        -:   83:}
+        -:   84:
+function sort_zi_suma called 4 returned 100% blocks executed 100%
+        4:   85:void sort_zi_suma(List *l, int suma, int zi, int mod){
+        -:   86:    int auxS, auxZ;
+        -:   87:    char auxD[255], auxT[20];
+        4:   88:    if (suma == -1 && mod == 1)
+        4:   88-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 2
+        2:   88-block  1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 1
+        3:   89:        for (int i = 0; i < size(l) - 1; i++)
+        1:   89-block  0
+        2:   89-block  1
+        3:   89-block  2
+call    0 returned 3
+branch  1 taken 2
+branch  2 taken 1 (fallthrough)
+        1:   89-block  3
+        5:   90:            for (int j = i + 1; j < size(l); j++){
+        2:   90-block  0
+        3:   90-block  1
+        5:   90-block  2
+call    0 returned 5
+branch  1 taken 3
+branch  2 taken 2 (fallthrough)
+        3:   91:                if (l->elem[i].zi > l->elem[j].zi ){
+        3:   91-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:   92:                    auxZ = l->elem[i].zi;
+        1:   93:                    auxS = l->elem[i].suma;
+        1:   94:                    strcpy(auxD, l->elem[i].descriere);
+        1:   95:                    strcpy(auxT, l->elem[i].tip);
+        1:   96:                    l->elem[i].zi = l->elem[j].zi;
+        1:   97:                    l->elem[i].suma = l->elem[j].suma;
+        1:   98:                    strcpy(l->elem[i].tip, l->elem[j].tip);
+        1:   99:                    strcpy(l->elem[i].descriere, l->elem[j].descriere);
+        1:  100:                    l->elem[j].zi = auxZ;
+        1:  101:                    l->elem[j].suma = auxS;
+        1:  102:                    strcpy(l->elem[j].descriere, auxD);
+        1:  103:                    strcpy(l->elem[j].tip, auxT);
+        1:  103-block  0
+        -:  104:                }
+        -:  105:            }
+        3:  106:    else if (suma == -1 && mod == 2)
+        3:  106-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:  106-block  1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        3:  107:        for (int i = 0; i < size(l) - 1; i++)
+        1:  107-block  0
+        2:  107-block  1
+        3:  107-block  2
+call    0 returned 3
+branch  1 taken 2
+branch  2 taken 1 (fallthrough)
+        1:  107-block  3
+        5:  108:            for (int j = i + 1; j < size(l); j++){
+        2:  108-block  0
+        3:  108-block  1
+        5:  108-block  2
+call    0 returned 5
+branch  1 taken 3
+branch  2 taken 2 (fallthrough)
+        3:  109:                if (l->elem[i].zi < l->elem[j].zi ){
+        3:  109-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 0
+        3:  110:                    auxZ = l->elem[i].zi;
+        3:  111:                    auxS = l->elem[i].suma;
+        3:  112:                    strcpy(auxD, l->elem[i].descriere);
+        3:  113:                    strcpy(auxT, l->elem[i].tip);
+        3:  114:                    l->elem[i].zi = l->elem[j].zi;
+        3:  115:                    l->elem[i].suma = l->elem[j].suma;
+        3:  116:                    strcpy(l->elem[i].tip, l->elem[j].tip);
+        3:  117:                    strcpy(l->elem[i].descriere, l->elem[j].descriere);
+        3:  118:                    l->elem[j].zi = auxZ;
+        3:  119:                    l->elem[j].suma = auxS;
+        3:  120:                    strcpy(l->elem[j].descriere, auxD);
+        3:  121:                    strcpy(l->elem[j].tip, auxT);
+        3:  121-block  0
+        -:  122:                }
+        -:  123:            }
+        2:  124:    else if (zi == -1 && mod == 1)
+        2:  124-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 0
+        2:  124-block  1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 1
+        3:  125:        for (int i = 0; i < size(l) - 1; i++)
+        1:  125-block  0
+        2:  125-block  1
+        3:  125-block  2
+call    0 returned 3
+branch  1 taken 2
+branch  2 taken 1 (fallthrough)
+        1:  125-block  3
+        5:  126:            for (int j = i + 1; j < size(l); j++){
+        2:  126-block  0
+        3:  126-block  1
+        5:  126-block  2
+call    0 returned 5
+branch  1 taken 3
+branch  2 taken 2 (fallthrough)
+        3:  127:                if (l->elem[i].suma > l->elem[j].suma){
+        3:  127-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:  128:                    auxZ = l->elem[i].zi;
+        1:  129:                    auxS = l->elem[i].suma;
+        1:  130:                    strcpy(auxD, l->elem[i].descriere);
+        1:  131:                    strcpy(auxT, l->elem[i].tip);
+        1:  132:                    l->elem[i].zi = l->elem[j].zi;
+        1:  133:                    l->elem[i].suma = l->elem[j].suma;
+        1:  134:                    strcpy(l->elem[i].tip, l->elem[j].tip);
+        1:  135:                    strcpy(l->elem[i].descriere, l->elem[j].descriere);
+        1:  136:                    l->elem[j].zi = auxZ;
+        1:  137:                    l->elem[j].suma = auxS;
+        1:  138:                    strcpy(l->elem[j].descriere, auxD);
+        1:  139:                    strcpy(l->elem[j].tip, auxT);
+        1:  139-block  0
+        -:  140:                }
+        -:  141:            }
+        1:  142:    else if (zi == -1 && mod == 2)
+        1:  142-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  142-block  1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        3:  143:        for (int i = 0; i < size(l) - 1; i++)
+        1:  143-block  0
+        2:  143-block  1
+        3:  143-block  2
+call    0 returned 3
+branch  1 taken 2
+branch  2 taken 1 (fallthrough)
+        5:  144:            for (int j = i + 1; j < size(l); j++){
+        2:  144-block  0
+        3:  144-block  1
+        5:  144-block  2
+call    0 returned 5
+branch  1 taken 3
+branch  2 taken 2 (fallthrough)
+        3:  145:                if (l->elem[i].suma < l->elem[j].suma){
+        3:  145-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 0
+        3:  146:                    auxZ = l->elem[i].zi;
+        3:  147:                    auxS = l->elem[i].suma;
+        3:  148:                    strcpy(auxD, l->elem[i].descriere);
+        3:  149:                    strcpy(auxT, l->elem[i].tip);
+        3:  150:                    l->elem[i].zi = l->elem[j].zi;
+        3:  151:                    l->elem[i].suma = l->elem[j].suma;
+        3:  152:                    strcpy(l->elem[i].tip, l->elem[j].tip);
+        3:  153:                    strcpy(l->elem[i].descriere, l->elem[j].descriere);
+        3:  154:                    l->elem[j].zi = auxZ;
+        3:  155:                    l->elem[j].suma = auxS;
+        3:  156:                    strcpy(l->elem[j].descriere, auxD);
+        3:  157:                    strcpy(l->elem[j].tip, auxT);
+        3:  157-block  0
+        -:  158:                }
+        -:  159:            }
+        4:  160:}

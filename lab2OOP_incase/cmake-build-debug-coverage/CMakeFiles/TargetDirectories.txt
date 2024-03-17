@@ -1,0 +1,3 @@
+C:/Users/Moglan Calin-Stefan/CLionProjects/lab2OOP_incase/cmake-build-debug-coverage/CMakeFiles/lab2OOP_incase.dir
+C:/Users/Moglan Calin-Stefan/CLionProjects/lab2OOP_incase/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
+C:/Users/Moglan Calin-Stefan/CLionProjects/lab2OOP_incase/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir

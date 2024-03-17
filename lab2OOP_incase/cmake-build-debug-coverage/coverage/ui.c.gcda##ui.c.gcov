@@ -1,0 +1,444 @@
+        -:    0:Source:C:/Users/Moglan Calin-Stefan/CLionProjects/lab2OOP_incase/ui.c
+        -:    0:Graph:C:\Users\Moglan Calin-Stefan\CLionProjects\lab2OOP_incase\cmake-build-debug-coverage\CMakeFiles\lab2OOP_incase.dir\ui.c.gcno
+        -:    0:Data:C:\Users\Moglan Calin-Stefan\CLionProjects\lab2OOP_incase\cmake-build-debug-coverage\CMakeFiles\lab2OOP_incase.dir\ui.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include "ui.h"
+        -:    3:#include "tests.h"
+        -:    4:
+        -:    5:/**
+        -:    6: functie care ruleaza toate testele
+        -:    7: **/
+function testAll called 1 returned 100% blocks executed 100%
+        1:    8:void testAll(){
+        1:    9:    printf("Incepe rularea testelor...\n");
+        1:    9-block  0
+call    0 returned 1
+        1:   10:    test_creazaTrans();
+call    0 returned 1
+        -:   11:
+        1:   12:    test_destroyTrans();
+call    0 returned 1
+        -:   13:
+        1:   14:    test_valid();
+call    0 returned 1
+        -:   15:
+        1:   16:    test_AddGet();
+call    0 returned 1
+        -:   17:
+        1:   18:    test_destroy();
+call    0 returned 1
+        -:   19:
+        1:   20:    test_add();
+call    0 returned 1
+        -:   21:
+        1:   22:    test_addTrans();
+call    0 returned 1
+        -:   23:
+        1:   24:    test_addTransService();
+call    0 returned 1
+        -:   25:
+        1:   26:    test_deleteTransService();
+call    0 returned 1
+        -:   27:
+        1:   28:    test_create_empty();
+call    0 returned 1
+        -:   29:
+        1:   30:    test_delete();
+call    0 returned 1
+        -:   31:
+        1:   32:    test_size();
+call    0 returned 1
+        -:   33:
+        1:   34:    test_modifyDomain();
+call    0 returned 1
+        -:   35:
+        1:   36:    test_modifyRepo();
+call    0 returned 1
+        -:   37:
+        1:   38:    test_modifyServ();
+call    0 returned 1
+        -:   39:
+        1:   40:    test_critTip();
+call    0 returned 1
+        -:   41:
+        1:   42:    test_critSuma();
+call    0 returned 1
+        -:   43:
+        1:   44:    test_Sort();
+call    0 returned 1
+        -:   45:
+        1:   46:    printf("\nTestele au rulat cu succes\n");
+call    0 returned 1
+        1:   47:}
+        -:   48:
+        -:   49:/**
+        -:   50: * functia de adaugare tranzactie din ui. cere utilizatorului datele de intrare
+        -:   51: *
+        -:   52: *  params: l - lsta de tranzactii in care se adauga
+        -:   53: */
+function uiAdd called 0 returned 0% blocks executed 0%
+    #####:   54:void uiAdd(List *l){
+    #####:   55:    printf("Adauga tranzactie: \n");
+    %%%%%:   55-block  0
+call    0 never executed
+        -:   56:    char descriere[255], tip[255];
+        -:   57:    int suma, zi;
+    #####:   58:    printf("Introduceti ziua: \n");
+call    0 never executed
+    #####:   59:    scanf("%d", &zi);
+call    0 never executed
+    #####:   60:    printf("Introduceti suma: \n");
+call    0 never executed
+    #####:   61:    scanf("%d", &suma);
+call    0 never executed
+    #####:   62:    printf("Introduceti descrierea: \n");
+call    0 never executed
+    #####:   63:    scanf("%s", descriere);
+call    0 never executed
+    #####:   64:    printf("Introduceti tipul: \n");
+call    0 never executed
+    #####:   65:    scanf("%s", tip);
+call    0 never executed
+        -:   66:
+    #####:   67:    int valid = adaugaTrans(l, descriere, suma, tip, zi);
+call    0 never executed
+    #####:   68:    if (valid == 1)
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   69:        printf("Tranzactie adaugata cu succes\n");
+    %%%%%:   69-block  0
+call    0 never executed
+        -:   70:    else
+    #####:   71:        printf("A aparut o eroare. Mai incercati odata\n");
+    %%%%%:   71-block  0
+call    0 never executed
+    #####:   72:}
+        -:   73:/**
+        -:   74: * functia de stergere a unei tranzactii. cere utilizatorului datele de intrare
+        -:   75: * @param l - lista de tranzactii din care stergem
+        -:   76: */
+function uiDelete called 0 returned 0% blocks executed 0%
+    #####:   77:void uiDelete(List *l){
+    #####:   78:    printf("Adauga tranzactie pentru stergere: \n");
+    %%%%%:   78-block  0
+call    0 never executed
+        -:   79:    char descriere[255], tip[255];
+        -:   80:    int suma, zi;
+    #####:   81:    printf("Introduceti ziua: \n");
+call    0 never executed
+    #####:   82:    scanf("%d", &zi);
+call    0 never executed
+    #####:   83:    printf("Introduceti suma: \n");
+call    0 never executed
+    #####:   84:    scanf("%d", &suma);
+call    0 never executed
+    #####:   85:    printf("Introduceti descrierea: \n");
+call    0 never executed
+    #####:   86:    scanf("%s", descriere);
+call    0 never executed
+    #####:   87:    printf("Introduceti tipul: \n");
+call    0 never executed
+    #####:   88:    scanf("%s", tip);
+call    0 never executed
+        -:   89:
+    #####:   90:    int valid = stergeTrans(l, descriere, suma, tip, zi);
+call    0 never executed
+        -:   91:
+    #####:   92:    if (valid == 1)
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   93:        printf("Tranzactie stearsa cu succes\n");
+    %%%%%:   93-block  0
+call    0 never executed
+        -:   94:    else
+    #####:   95:        printf("A aparut o eroare. Mai incercati odata\n");
+    %%%%%:   95-block  0
+call    0 never executed
+    #####:   96:}
+        -:   97:
+function uiModify called 0 returned 0% blocks executed 0%
+    #####:   98:void uiModify(List *l){
+    #####:   99:    printf("Adauga datele tranzactiei pe care vrei sa o modifici: \n");
+    %%%%%:   99-block  0
+call    0 never executed
+        -:  100:    char descriere[255], new_descriere[255], tip[255], new_tip[255];
+        -:  101:    int suma, new_suma ,zi, new_zi;
+    #####:  102:    printf("Introduceti ziua: \n");
+call    0 never executed
+    #####:  103:    scanf("%d", &zi);
+call    0 never executed
+    #####:  104:    printf("Introduceti suma: \n");
+call    0 never executed
+    #####:  105:    scanf("%d", &suma);
+call    0 never executed
+    #####:  106:    printf("Introduceti descrierea: \n");
+call    0 never executed
+    #####:  107:    scanf("%s", descriere);
+call    0 never executed
+    #####:  108:    printf("Introduceti tipul: \n");
+call    0 never executed
+    #####:  109:    scanf("%s", tip);
+call    0 never executed
+    #####:  110:    printf("Adauga datele noi ale tranzactiei: \n");
+call    0 never executed
+    #####:  111:    printf("Introduceti ziua: \n");
+call    0 never executed
+    #####:  112:    scanf("%d", &new_zi);
+call    0 never executed
+    #####:  113:    printf("Introduceti suma: \n");
+call    0 never executed
+    #####:  114:    scanf("%d", &new_suma);
+call    0 never executed
+    #####:  115:    printf("Introduceti descrierea: \n");
+call    0 never executed
+    #####:  116:    scanf("%s", new_descriere);
+call    0 never executed
+    #####:  117:    printf("Introduceti tipul: \n");
+call    0 never executed
+    #####:  118:    scanf("%s", new_tip);
+call    0 never executed
+        -:  119:
+    #####:  120:    int valid = modifyTransServ(l,descriere, suma, tip, zi, new_descriere, new_suma, new_tip, new_zi);
+call    0 never executed
+        -:  121:
+    #####:  122:    if (valid == 1)
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  123:        printf("Tranzactia a fost modificata cu succes\n");
+    %%%%%:  123-block  0
+call    0 never executed
+        -:  124:    else
+    #####:  125:        printf("A aparut o eroare. Mai incercati odata\n");
+    %%%%%:  125-block  0
+call    0 never executed
+    #####:  126:}
+        -:  127:/**
+        -:  128: *
+        -:  129: * @param l
+        -:  130: */
+function uiTransCritTip called 0 returned 0% blocks executed 0%
+    #####:  131:void uiTransCritTip(List *l){
+        -:  132:    char srt[10];
+    #####:  133:    printf("Introduceti tipul dupa care doriti sa filtram!\n");
+    %%%%%:  133-block  0
+call    0 never executed
+    #####:  134:    scanf("%s", srt);
+call    0 never executed
+    #####:  135:    List lista_filtru = transCritTip(l, srt);
+call    0 never executed
+    #####:  136:    if (size(&lista_filtru) == 0)
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:  137:        printf("A aparut o eroare!\n");
+    %%%%%:  137-block  0
+call    0 never executed
+        -:  138:    else
+    #####:  139:        getAll(&lista_filtru);
+    %%%%%:  139-block  0
+call    0 never executed
+    #####:  140:}
+        -:  141:
+function uiTransCritSuma called 0 returned 0% blocks executed 0%
+    #####:  142:void uiTransCritSuma(List *l){
+        -:  143:    int suma, mod;
+    #####:  144:    printf("Introduceti suma cu care doriti sa comparam: \n");
+    %%%%%:  144-block  0
+call    0 never executed
+    #####:  145:    scanf("%d", &suma);
+call    0 never executed
+    #####:  146:    printf("Introduceti 1 pentru mai mare decat suma sau 2 pentru mai mic decat suma: \n");
+call    0 never executed
+    #####:  147:    scanf("%d", &mod);
+call    0 never executed
+        -:  148:
+    #####:  149:    List lista_filtru = transCritSuma(l, suma, mod);
+call    0 never executed
+        -:  150:
+    #####:  151:    if (size(&lista_filtru) == 0)
+call    0 never executed
+branch  1 never executed (fallthrough)
+branch  2 never executed
+    #####:  152:        printf("A aparut o eroare!\n");
+    %%%%%:  152-block  0
+call    0 never executed
+        -:  153:    else
+    #####:  154:        getAll(&lista_filtru);
+    %%%%%:  154-block  0
+call    0 never executed
+        -:  155:
+    #####:  156:}
+        -:  157:
+function uiSort called 0 returned 0% blocks executed 0%
+    #####:  158:void uiSort(List *l){
+    #####:  159:    int suma = -1, zi = -1, mod, sort;
+    #####:  160:    printf("Alege dupa ce se face sortarea: 1 - suma ; 2 - zi\n");
+    %%%%%:  160-block  0
+call    0 never executed
+    #####:  161:    scanf("%d", &sort);
+call    0 never executed
+    #####:  162:    printf("Alege cum se face sortarea: 1 - crescator ; 2 - descrescator\n");
+call    0 never executed
+    #####:  163:    scanf("%d", &mod);
+call    0 never executed
+    #####:  164:    if (mod < 1 || mod > 2)
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    %%%%%:  164-block  0
+branch  2 never executed (fallthrough)
+branch  3 never executed
+    #####:  165:        printf("A aparut o eroare!\n");
+    %%%%%:  165-block  0
+call    0 never executed
+    #####:  166:    else if (sort == 1){
+    %%%%%:  166-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  167:        suma = 1;
+    #####:  168:        sort_zi_suma(l, suma, zi, mod);
+    %%%%%:  168-block  0
+call    0 never executed
+        -:  169:    }
+    #####:  170:    else if (sort == 2){
+    %%%%%:  170-block  0
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:  171:        zi = 1;
+    #####:  172:        sort_zi_suma(l, suma, zi, mod);
+    %%%%%:  172-block  0
+call    0 never executed
+        -:  173:    }
+        -:  174:
+    #####:  175:    getAll(l);
+    %%%%%:  175-block  0
+call    0 never executed
+    #####:  176:}
+        -:  177:/**
+        -:  178: *
+        -:  179: * functie care afiseaza toate tranzactiile din lista
+        -:  180: * @param l - lista de tranzactii
+        -:  181: */
+function getAll called 0 returned 0% blocks executed 0%
+    #####:  182:void getAll(List *l){
+    #####:  183:    for (int i = 0; i < size(l); i++){
+    %%%%%:  183-block  0
+    %%%%%:  183-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed (fallthrough)
+    #####:  184:        Trans t = get(l, i);
+    %%%%%:  184-block  0
+call    0 never executed
+    #####:  185:        printf("Tip %s, Descriere %s, Suma %d, Zi %d\n", t.tip, t.descriere, t.suma,t.zi);
+call    0 never executed
+        -:  186:    }
+    #####:  187:}
+        -:  188:
+        -:  189:/**
+        -:  190: * Functie care afiseaza optiunile pe care le poate alege utilizatorul in aplicatie
+        -:  191: */
+function menu called 1 returned 100% blocks executed 100%
+        1:  192:void menu(){
+        1:  193:    printf("1. Adauga tranzactie\n");
+        1:  193-block  0
+call    0 returned 1
+        1:  194:    printf("2. Sterge tranzactie\n");
+call    0 returned 1
+        1:  195:    printf("3. Afisare tranzactii\n");
+call    0 returned 1
+        1:  196:    printf("4. Modificare tranzactie\n");
+call    0 returned 1
+        1:  197:    printf("5. Filtrare dupa tip\n");
+call    0 returned 1
+        1:  198:    printf("6. Filtrare dupa suma\n");
+call    0 returned 1
+        1:  199:    printf("7. Sortare\n");
+call    0 returned 1
+        1:  200:    printf("8. Iesire aplicatie\n");
+call    0 returned 1
+        1:  201:}
+        -:  202:
+        -:  203:/**
+        -:  204: * functie care porneste executia aplicatiei
+        -:  205: */
+function run called 1 returned 100% blocks executed 41%
+        1:  206:void run(){
+        1:  207:    List l = createEmpty();
+        1:  207-block  0
+call    0 returned 1
+        1:  208:    int option, ok = 1;
+        1:  209:    printf("Bine ati venit!\n");
+call    0 returned 1
+        -:  210:
+        2:  211:    while(ok){
+        2:  211-block  0
+branch  0 taken 1
+branch  1 taken 1 (fallthrough)
+        1:  212:        menu();
+        1:  212-block  0
+call    0 returned 1
+        1:  213:        printf("Alege optiunea: \n");
+call    0 returned 1
+        1:  214:        scanf("%d", &option);
+call    0 returned 1
+        1:  215:        switch (option){
+branch  0 taken 0
+branch  1 taken 0
+branch  2 taken 0
+branch  3 taken 0
+branch  4 taken 0
+branch  5 taken 0
+branch  6 taken 0
+branch  7 taken 1
+branch  8 taken 0
+    #####:  216:            case 1:
+    #####:  217:                uiAdd(&l);
+    %%%%%:  217-block  0
+call    0 never executed
+    #####:  218:                break;
+    #####:  219:            case 2:
+    #####:  220:                uiDelete(&l);
+    %%%%%:  220-block  0
+call    0 never executed
+    #####:  221:                break;
+    #####:  222:            case 3:
+    #####:  223:                getAll(&l);
+    %%%%%:  223-block  0
+call    0 never executed
+    #####:  224:                break;
+    #####:  225:            case 4:
+    #####:  226:                uiModify(&l);
+    %%%%%:  226-block  0
+call    0 never executed
+    #####:  227:                break;
+    #####:  228:            case 5:
+    #####:  229:                uiTransCritTip(&l);
+    %%%%%:  229-block  0
+call    0 never executed
+    #####:  230:                break;
+    #####:  231:            case 6:
+    #####:  232:                uiTransCritSuma(&l);
+    %%%%%:  232-block  0
+call    0 never executed
+    #####:  233:                break;
+    #####:  234:            case 7:
+    #####:  235:                uiSort(&l);
+    %%%%%:  235-block  0
+call    0 never executed
+    #####:  236:                break;
+        1:  237:            case 8:
+        1:  238:                printf("Bye traveler\n");
+        1:  238-block  0
+call    0 returned 1
+        1:  239:                ok = 0;
+        1:  240:                break;
+    #####:  241:            default:
+    #####:  242:                printf("Comanda gresita\n");
+    %%%%%:  242-block  0
+call    0 never executed
+    #####:  243:                break;
+        -:  244:
+        -:  245:        }
+        -:  246:    }
+        1:  247:}
